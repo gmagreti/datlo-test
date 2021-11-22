@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from 'react'
 
 // Props
-import { MapProps } from 'components/Map/MapProps'
+import { MapProps } from '../components/Map/MapProps'
 
 export const mapCoordinatesContext = createContext<any>(null)
 
