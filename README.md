@@ -1,34 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Teste para Desenvolvedor ReactJs - Datlo
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  Implementar uma página web com um mapa interativo usando a biblioteca Leaflet.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+  [X] Crie uma página de listagem de cidades paginadas com os seguintes campos:
+      - Código IBGE
+      - Nome da cidade
+      - UF
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+  [X] Na página deverá ter um campo de pesquisa, sendo possível pesquisar por código IBGE,
+      nome da cidade e UF
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+  [X] Na última coluna da listagem, adicione um botão com o texto “Ver no mapa”. O botão
+      deverá levar para uma página com um mapa, onde será apresentado todos os setores da
+      cidade selecionada.
 
-## Learn More
+  [] O mapa deverá ser classificado pela propriedade population
 
-To learn more about Next.js, take a look at the following resources:
+  [X] Ao clicar em um setor, deverá apresentar um popup com  as seguintes informações: Total
+      de população (population), renda média (averageIncome) (R$) daquele setor
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  [] O mapa deverá ser renderizado do lado do servidor (SSR) usando NextJS com Leaflet.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+  [x] Devem ser utilizadas as seguintes tecnologias:
+      - HTML
+      - CSS
+      - Javascript
+      - ReactJS
+      - TypeScript
+      - NextJS
+      - Jest
+```
 
-## Deploy on Vercel
+## Testes Unitarios
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[] Implementar teste para verificar se está renderizando o mapa na página.
+[] Implementar teste para verificar se ao clicar no botão “Ver no mapa” está buscando
+os dados da cidade e apresentando no mapa.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    https://www.api.development.datlo.com/cities
+    https://www.api.development.datlo.com/map/city?ibgeCode=xxxx

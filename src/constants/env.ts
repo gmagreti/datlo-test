@@ -1,0 +1,3 @@
+export const MAPBOX_API_KEY = process.env.NEXT_PUBLIC_MAPBOX_API_KEY
+export const MAPBOX_USERID = process.env.NEXT_PUBLIC_MAPBOX_USERID
+export const MAPBOX_STYLEID = process.env.NEXT_PUBLIC_MAPBOX_STYLEID
