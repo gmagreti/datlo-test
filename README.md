@@ -29,7 +29,6 @@ Esse projeto foi feito utilizando as seguintes tecnologias:
 - [Typescript](https://www.typescriptlang.org/)
 - [React](https://reactjs.org/)
 - [React Leaflet](https://react-leaflet.js.org/)
-- [Express](https://expressjs.com/)
 
 # :rocket: Funcionalidades
 
