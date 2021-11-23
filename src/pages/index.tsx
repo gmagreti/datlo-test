@@ -36,6 +36,7 @@ export default function Home({ hideOnMobile = false }: showMobile) {
   const [showMobile, setShowMobile] = useState(false)
 
   const btnText = search ? 'Pesquisar' : 'Buscar todos'
+  const btnShowMob = showMobile ? 'Ver mapa' : 'Ver cidades'
 
   function getDataApi(texts?: string, params?: number) {
     const param = params ? `/Cities?${texts}=${params}` : '/cities'
@@ -100,7 +101,7 @@ export default function Home({ hideOnMobile = false }: showMobile) {
     <S.Wrapper>
       <S.WrapperContent hideOnMobile={showMobile}>
         <S.Head>
-          <button onClick={() => handleShowMobile()}>Ver cidades </button>
+          <button onClick={() => handleShowMobile()}>{btnShowMob}</button>
         </S.Head>
 
         <S.Header>
