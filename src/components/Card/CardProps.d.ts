@@ -2,7 +2,7 @@ export interface StateProps {
   id?: string
   name: string
   state: string
-  initials: string
+  stateInitials: string
   ibgeCode: string
 }
 

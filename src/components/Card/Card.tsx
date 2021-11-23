@@ -16,9 +16,7 @@ const Card = ({ states }: CardProps) => {
       setData()
       setLoading(true)
       const response = await api.get(`Map/City?ibgeCode=${ibgeCode}`)
-
       const { data } = response
-
       setData(data)
       setLoading(false)
     } catch (err) {
@@ -47,7 +45,7 @@ const Card = ({ states }: CardProps) => {
             <S.Label>
               Estado:
               <p>
-                {st.state} • {st.initials}
+                {st.state} • {st.stateInitials}
               </p>
             </S.Label>
 

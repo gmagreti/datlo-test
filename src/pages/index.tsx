@@ -14,21 +14,26 @@ import Loading from '../components/Loading'
 import * as S from '../styles/styles'
 
 // Services
-import { api } from '../services/api'
 import { useMapCoordinates } from '../hook/MapCoordinates'
+import { api } from '../services/api'
 
 // Logo
 import LogoDatlo from '../../public/datlo'
 
-const Map = dynamic(() => import('../components/Map'), { ssr: false })
+export type showMobile = {
+  hideOnMobile?: boolean
+}
 
-export default function Home() {
+const Map = dynamic(() => import('../components/Map/Map'), { ssr: false })
+
+export default function Home({ hideOnMobile = false }: showMobile) {
   const [states, setStates] = useState<any>()
   const [pageNumber, setPageNumber] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
   const [search, setSearch] = useState('')
   const [inputError, setInputError] = useState('')
   const { loading, setLoading } = useMapCoordinates()
+  const [showMobile, setShowMobile] = useState(false)
 
   const btnText = search ? 'Pesquisar' : 'Buscar todos'
 
@@ -44,9 +49,7 @@ export default function Home() {
         setTotalPages(data.totalPages)
       })
       setLoading(false)
-    } catch (err) {
-      setLoading(false)
-    }
+    } catch (err) {}
   }
 
   useEffect(() => {
@@ -89,9 +92,17 @@ export default function Home() {
     }
   }
 
+  function handleShowMobile() {
+    setShowMobile(!showMobile)
+  }
+
   return (
     <S.Wrapper>
-      <S.WrapperContent>
+      <S.WrapperContent hideOnMobile={showMobile}>
+        <S.Head>
+          <button onClick={() => handleShowMobile()}>Ver cidades </button>
+        </S.Head>
+
         <S.Header>
           <LogoDatlo style={{ width: '80px', height: '30px' }} />
           <S.Form onSubmit={handleSearch}>

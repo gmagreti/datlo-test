@@ -1,39 +1,108 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { shade } from 'polished'
+
+import { showMobile } from '../pages/index'
+
+const wrapperModifiers = {
+  hideOnMobile: () => css`
+    bottom: 0 !important;
+    transition: bottom 0.25s ease-out;
+  `
+}
 
 export const Wrapper = styled.main`
   display: grid;
   grid-template-columns: 40rem 1fr;
   height: 100vh;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    position: relative;
+  }
 `
 
-export const WrapperContent = styled.div`
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 10rem auto 3rem;
-  gap: 0px 0px;
-  grid-template-areas:
-    'heade'
-    'main'
-    'footer';
-  gap: 2rem;
-  background: var(--white);
-  padding: 2rem;
+export const WrapperContent = styled.div<showMobile>`
+  ${({ hideOnMobile }) => css`
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10rem auto 3rem;
+    gap: 0px 0px;
+    grid-template-areas:
+      'head'
+      'header'
+      'main'
+      'footer';
+    gap: 2rem;
+    background: var(--white);
+    padding: 2rem;
+
+    @media (max-width: 768px) {
+      ${!!hideOnMobile && wrapperModifiers.hideOnMobile}
+      grid-template-rows: 4rem 10rem auto 3rem;
+      width: 100%;
+      height: 100%;
+      grid-template-columns: 1fr;
+      position: absolute;
+      bottom: -91%;
+      z-index: 2000;
+      transition: bottom 0.25s ease-in;
+    }
+  `}
+`
+
+export const Head = styled.div`
+  display: none;
+  grid-area: 'head';
+  flex-direction: column;
+  gap: 1rem;
+
+  button {
+    width: 100%;
+    height: 40px;
+    padding: 1rem;
+    color: var(--white);
+    border: none;
+    border: 1px solid #dce2e6;
+    border-radius: 16px;
+    background: #2f66ff;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.2s;
+
+    &:hover {
+      color: #2f66ff;
+      background: var(--white);
+      border: 1px solid #2f66ff;
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr;
+    z-index: 2000;
+  }
 `
 
 export const Header = styled.div`
+  grid-area: 'haeder';
   display: flex;
   flex-direction: column;
   gap: 1rem;
 `
 export const Main = styled.div`
+  grid-area: 'main';
   display: flex;
   flex-direction: column;
   gap: 1rem;
   overflow: auto;
 `
 export const Footer = styled.div`
+  grid-area: 'footer';
   padding-right: 1.2rem;
   display: flex;
   justify-content: space-between;

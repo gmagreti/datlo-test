@@ -10,7 +10,7 @@ export function useMapCoordinates() {
 }
 
 export function MapCoordinates({ children }: any) {
-  const [data, setData] = useState<MapProps[]>()
+  const [data, setData] = useState<MapProps[]>([] as MapProps[])
   const [loading, setLoading] = useState(false)
 
   const value = {

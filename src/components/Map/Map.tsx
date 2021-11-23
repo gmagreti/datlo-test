@@ -39,27 +39,29 @@ const Map = () => {
   const { data } = useMapCoordinates()
 
   return (
-    <MapContainer
-      center={[-47.848562, -30.115932]}
-      zoom={6}
-      style={{ height: '100%', width: '100%' }}
-    >
-      <CustomTileLayer />
-      {data &&
-        data?.features?.map((coord: FeaturesProps) => (
-          <FeatureGroup key={coord.properties.geom}>
-            <Polygon
-              pathOptions={{ color: getColor(coord.properties.population) }}
-              positions={coord.geometry.coordinates}
-            >
-              <Popup>
-                População total: {coord.properties.population} - Renda média:{' '}
-                {convertMoney(coord.properties.averageincome)}
-              </Popup>
-            </Polygon>
-          </FeatureGroup>
-        ))}
-    </MapContainer>
+    <span data-testid="leaflet-map">
+      <MapContainer
+        center={[-51.905072, -23.45017]}
+        zoom={6}
+        style={{ height: '100%', width: '100%' }}
+      >
+        <CustomTileLayer />
+        {data &&
+          data?.features?.map((coord: FeaturesProps) => (
+            <FeatureGroup key={coord.properties.geom}>
+              <Polygon
+                pathOptions={{ color: getColor(coord.properties.population) }}
+                positions={coord.geometry.coordinates}
+              >
+                <Popup>
+                  População total: {coord.properties.population} - Renda média:{' '}
+                  {convertMoney(coord.properties.averageincome)}
+                </Popup>
+              </Polygon>
+            </FeatureGroup>
+          ))}
+      </MapContainer>
+    </span>
   )
 }
 
