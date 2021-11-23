@@ -11,7 +11,7 @@ import { Card } from '../components/Card'
 import Loading from '../components/Loading'
 
 // Styles
-import * as S from './styles'
+import * as S from '../styles/styles'
 
 // Services
 import { api } from '../services/api'
