@@ -27,8 +27,10 @@ Você pode acessar o site em:
 Esse projeto foi feito utilizando as seguintes tecnologias:
 
 - [Typescript](https://www.typescriptlang.org/)
-- [React](https://reactjs.org/)
+- [React JS](https://reactjs.org/)
+- [Next JS](https://nextjs.org/)
 - [React Leaflet](https://react-leaflet.js.org/)
+- [Styled Components](https://styled-components.com/)
 
 # :rocket: Funcionalidades
 
